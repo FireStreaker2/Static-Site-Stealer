@@ -52,25 +52,27 @@ app.get("/simple/:url", async (req, res) => {
 app.get("/iframe/:url", (req, res) => {
     const url = req.params.url;
     res.send(`
+    <!-- https://github.com/FireStreaker2/Static-Site-Stealer --> 
     <!DOCTYPE HTML>
     <html>
         <head>
             <title>Static Site Stealer</title>
         </head>
-    <!-- https://github.com/FireStreaker2/Static-Site-Stealer --> 
-    <style>
-        * {
-            margin: 0;
-            overflow: hidden;
-        }
+        <body>
+            <style>
+                * {
+                    margin: 0;
+                    overflow: hidden;
+                }
 
-        iframe {
-            width: 100%;
-            height: 100vh;
-        }
+                iframe {
+                    width: 100%;
+                    height: 100vh;
+                }
 
-    </style>
-    <iframe src="http://${url}"></iframe>
+            </style>
+            <iframe src="http://${url}"></iframe>
+        </body>
     </html>`);
 });
 
