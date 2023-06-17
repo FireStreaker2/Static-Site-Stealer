@@ -6,11 +6,11 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.send(`<script>window.location.href = "https://github.com/FireStreaker2/Static-Site-Stealer"</script>`);
 });
 
-app.get("/search/:url", async (req, res) => {
-    const requestedUrl = `http://${req.params.url}`;
+app.get("/search/:url*", async (req, res) => {
+    const requestedUrl =  `http://${req.params.url}${req.params[0]}`;
 
     try {
         const response = await axios.get(requestedUrl);
@@ -18,7 +18,7 @@ app.get("/search/:url", async (req, res) => {
 
         const $ = cheerio.load(html);
 
-        $("[src],[href]").each(function () {
+        $("[src],[href]").each(function() {
             const element = $(this);
             const attributes = ["src", "href"];
 
@@ -38,19 +38,20 @@ app.get("/search/:url", async (req, res) => {
     }
 });
 
-app.get("/simple/:url", async (req, res) => {
-    const url = `http://${req.params.url}`;
+app.get("/simple/:url*", async (req, res) => {
+    const url = `http://${req.params.url}${req.params[0]}`;
 
     try {
         const response = await axios.get(url);
         res.send(response.data);
     } catch (error) {
         res.status(500).send("Error fetching the HTML.");
+        console.log(error);
     }
 });
 
-app.get("/iframe/:url", (req, res) => {
-    const url = req.params.url;
+app.get("/iframe/:url*", (req, res) => {
+    const url = req.params.url + req.params[0];
     res.send(`
     <!-- https://github.com/FireStreaker2/Static-Site-Stealer --> 
     <!DOCTYPE HTML>

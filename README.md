@@ -1,5 +1,4 @@
-# Static-Site-Stealer
- Simple node program to "steal" sites
+![Static-Site-Stealer](https://socialify.git.ci/FireStreaker2/Static-Site-Stealer/image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Dark)
 
 # Info
 Static Site Stealer is a simple node program to "steal" static sites. It accomplishes this by fetching the HTML for a URL on the server, and then sends an exact copy of it to the client. It comes with three different routes, all with their own purposes.
