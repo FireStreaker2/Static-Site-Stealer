@@ -21,6 +21,7 @@ $ cd Static-Site-Stealer
 $ npm i
 $ npm start
 ```
+> Please note that if you are selfhosting with a custom URL, you **must** set your URL environment variable to the proper value (ex. https://sss.firestreaker2.gq), otherwise this will **not** work.
 
 # License
 <a href="https://github.com/FireStreaker2/Static-Site-Stealer/blob/main/LICENSE">MIT</a>
